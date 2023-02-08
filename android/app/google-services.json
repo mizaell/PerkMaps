@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "234744498178",
+    "project_id": "perkmaps-f4083",
+    "storage_bucket": "perkmaps-f4083.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:234744498178:android:c6e94729420e01869dbf1b",
+        "android_client_info": {
+          "package_name": "com.example.perk_maps"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "234744498178-8jgelhmgsdng1e64o4gm83u5htmk6rl7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.perk_maps",
+            "certificate_hash": "70fb938122dd1ead2357c1546470eb844ed31924"
+          }
+        },
+        {
+          "client_id": "234744498178-fnoh32i2dde1eqvrq3gq9v7j31c6ijng.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAiEIuQsRrKkG70eeLF3zQqkbin-o9SGKY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "234744498178-fnoh32i2dde1eqvrq3gq9v7j31c6ijng.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
