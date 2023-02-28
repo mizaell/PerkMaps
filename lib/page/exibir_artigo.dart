@@ -18,7 +18,7 @@ class _ExibirArtigoState extends State<ExibirArtigo> {
     if (await canLaunchUrl(url)) {
       await launchUrl(url, mode: LaunchMode.externalApplication);
     } else {
-      _scaffoldKey.currentState.showSnackBar(SnackBar(
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
         content: Text(
           "DOI não encontrada",
           textAlign: TextAlign.center,

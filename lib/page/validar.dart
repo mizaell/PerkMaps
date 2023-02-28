@@ -21,7 +21,10 @@ class _ValidarArtigoState extends State<ValidarArtigo> {
     if (await canLaunchUrl(url)) {
       await launchUrl(url, mode: LaunchMode.externalApplication);
     } else {
-      _scaffoldKey.currentState.showSnackBar(SnackBar(
+      // ScaffoldMessenger.of(context).showSnackBar(
+      //                         const SnackBar(
+      //                             content: Text('Erro ao buscar Endereço')));
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
         content: Text("DOI não encontrada"),
         backgroundColor: Colors.redAccent,
         duration: Duration(seconds: 3),
@@ -373,7 +376,7 @@ class _ValidarArtigoState extends State<ValidarArtigo> {
                                   onPressed: () {
                                     widget.snapshot.reference
                                         .updateData({'status': "Recusado"});
-                                    _scaffoldKey.currentState
+                                    ScaffoldMessenger.of(context)
                                         .showSnackBar(SnackBar(
                                       content: Text(
                                         "O artigo foi recusado com sucesso. Obrigado pela sua avaliação!",
@@ -490,7 +493,7 @@ class _ValidarArtigoState extends State<ValidarArtigo> {
                                   onPressed: () {
                                     widget.snapshot.reference
                                         .updateData({'status': "Aprovado"});
-                                    _scaffoldKey.currentState
+                                    ScaffoldMessenger.of(context)
                                         .showSnackBar(SnackBar(
                                       content: Text(
                                         "O artigo foi aprovado com sucesso e já pode ser visualizado no mapa. Obrigado pela sua avaliação!",

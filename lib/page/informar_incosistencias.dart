@@ -25,7 +25,7 @@ class _InformarInconsistenciasState extends State<InformarInconsistencias> {
     if (await canLaunchUrl(url)) {
       await launchUrl(url, mode: LaunchMode.externalApplication);
     } else {
-      _scaffoldKey.currentState.showSnackBar(SnackBar(
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
         content: Text("DOI não encontrada"),
         backgroundColor: Colors.redAccent,
         duration: Duration(seconds: 3),
@@ -420,7 +420,7 @@ class _InformarInconsistenciasState extends State<InformarInconsistencias> {
                                       _inconsistenciaController.text,
                                 
                                 });
-                                _scaffoldKey.currentState.showSnackBar(SnackBar(
+                                ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                                   content: Text(
                                     "O autor do artigo será informado sobre as  inconsistências existentes. Obrigado pela sua avaliação!",
                                     textAlign: TextAlign.center,

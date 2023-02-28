@@ -593,7 +593,7 @@ class _NovoArtigoState extends State<NovoArtigo> {
           })));
 
   void _onSuccess() {
-    _scaffoldKey.currentState.showSnackBar(SnackBar(
+    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
       content: Text(
         "Artigo atribuído com sucesso. Obrigado pela sua contribuição!",
         textAlign: TextAlign.center,
@@ -610,7 +610,7 @@ class _NovoArtigoState extends State<NovoArtigo> {
   }
 
   void _onFail() {
-    _scaffoldKey.currentState.showSnackBar(SnackBar(
+    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
       content: Text(
         "Falha ao adicionar artigo.",
         textAlign: TextAlign.center,

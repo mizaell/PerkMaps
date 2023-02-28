@@ -3,17 +3,23 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class ExibirArtigoAtribuido extends StatelessWidget {
+class ExibirArtigoAtribuido extends StatefulWidget {
   final DocumentSnapshot snapshot;
 
   ExibirArtigoAtribuido(this.snapshot);
 
+  @override
+  State<ExibirArtigoAtribuido> createState() => _ExibirArtigoAtribuidoState();
+}
+
+class _ExibirArtigoAtribuidoState extends State<ExibirArtigoAtribuido> {
   final _scaffoldKey = GlobalKey<ScaffoldState>();
+
   Future<void> _launchLink(Uri url) async {
     if (await canLaunchUrl(url)) {
       await launchUrl(url, mode: LaunchMode.externalApplication);
     } else {
-      _scaffoldKey.currentState.showSnackBar(SnackBar(
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
         content: Text(
           "DOI não encontrada",
           textAlign: TextAlign.center,
@@ -116,7 +122,7 @@ class ExibirArtigoAtribuido extends StatelessWidget {
                 Container(
                   padding: EdgeInsets.only(bottom: 10),
                   child: Text(
-                    snapshot.data["especie"],
+                    widget.snapshot.data["especie"],
                     textAlign: TextAlign.justify,
                     style: TextStyle(
                       fontSize: 25,
@@ -137,7 +143,7 @@ class ExibirArtigoAtribuido extends StatelessWidget {
                 Container(
                   padding: EdgeInsets.only(bottom: 10),
                   child: Text(
-                    snapshot.data["hospedeiro"],
+                    widget.snapshot.data["hospedeiro"],
                     textAlign: TextAlign.justify,
                     style: TextStyle(
                       fontSize: 25,
@@ -158,7 +164,7 @@ class ExibirArtigoAtribuido extends StatelessWidget {
                 Container(
                   padding: EdgeInsets.only(bottom: 10),
                   child: Text(
-                    snapshot.data["localColeta"],
+                    widget.snapshot.data["localColeta"],
                     textAlign: TextAlign.justify,
                     style: TextStyle(
                       fontSize: 25,
@@ -179,7 +185,7 @@ class ExibirArtigoAtribuido extends StatelessWidget {
                 Container(
                   padding: EdgeInsets.only(bottom: 10),
                   child: Text(
-                    snapshot.data["origem"],
+                    widget.snapshot.data["origem"],
                     textAlign: TextAlign.justify,
                     style: TextStyle(
                       fontSize: 25,
@@ -200,7 +206,7 @@ class ExibirArtigoAtribuido extends StatelessWidget {
                 Container(
                   padding: EdgeInsets.only(bottom: 10),
                   child: Text(
-                    snapshot.data["muinicipio"],
+                    widget.snapshot.data["muinicipio"],
                     textAlign: TextAlign.justify,
                     style: TextStyle(
                       fontSize: 25,
@@ -221,7 +227,7 @@ class ExibirArtigoAtribuido extends StatelessWidget {
                 Container(
                   padding: EdgeInsets.only(bottom: 10),
                   child: Text(
-                    snapshot.data["estado"],
+                    widget.snapshot.data["estado"],
                     textAlign: TextAlign.justify,
                     style: TextStyle(
                       fontSize: 25,
@@ -242,11 +248,11 @@ class ExibirArtigoAtribuido extends StatelessWidget {
                 Container(
                   child: Text(
                     "Latitude: " +
-                        grau(snapshot.data['point'].latitude.toString()) +
+                        grau(widget.snapshot.data['point'].latitude.toString()) +
                         "º" +
-                        minuto(snapshot.data['point'].latitude.toString()) +
+                        minuto(widget.snapshot.data['point'].latitude.toString()) +
                         "'" +
-                        segundo(snapshot.data['point'].latitude.toString()) +
+                        segundo(widget.snapshot.data['point'].latitude.toString()) +
                         '" S',
                     textAlign: TextAlign.justify,
                     style: TextStyle(
@@ -259,12 +265,12 @@ class ExibirArtigoAtribuido extends StatelessWidget {
                   padding: EdgeInsets.only(bottom: 10),
                   child: Text(
                     "Longitude: " +
-                        grau(snapshot.data['point'].longitude.toString()) +
+                        grau(widget.snapshot.data['point'].longitude.toString()) +
                         "º" +
-                        minuto(snapshot.data['point'].longitude.toString()) +
+                        minuto(widget.snapshot.data['point'].longitude.toString()) +
                         "'" +
                         segundo(
-                            snapshot.data['point'].longitude.toString()) +
+                            widget.snapshot.data['point'].longitude.toString()) +
                         '" W',
                     textAlign: TextAlign.justify,
                     style: TextStyle(
@@ -286,7 +292,7 @@ class ExibirArtigoAtribuido extends StatelessWidget {
                 Container(
                   padding: EdgeInsets.only(bottom: 10),
                   child: Text(
-                    snapshot.data["referencia"],
+                    widget.snapshot.data["referencia"],
                     textAlign: TextAlign.justify,
                     style: TextStyle(
                       fontSize: 25,
@@ -315,9 +321,9 @@ class ExibirArtigoAtribuido extends StatelessWidget {
                           tapTargetSize: MaterialTapTargetSize.shrinkWrap,
                         ),
                         onPressed: () =>
-                            _launchLink(Uri.parse(snapshot.data["doi"])),
+                            _launchLink(Uri.parse(widget.snapshot.data["doi"])),
                         child: Text(
-                          snapshot.data["doi"],
+                          widget.snapshot.data["doi"],
                           // textAlign: TextAlign.left,
                           style: TextStyle(
                             fontSize: 25,

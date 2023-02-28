@@ -271,7 +271,7 @@ class _RedefinirSenhaState extends State<RedefinirSenha> {
           })));
 
   void _onSuccess() {
-    _scaffoldKey.currentState.showSnackBar(SnackBar(
+    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
       content: Text(
         "Senha atualizada com Sucesso!",
         textAlign: TextAlign.center,
@@ -290,7 +290,7 @@ class _RedefinirSenhaState extends State<RedefinirSenha> {
   }
 
   void _onFail() {
-    _scaffoldKey.currentState.showSnackBar(SnackBar(
+    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
       content: Text(
         "Falha ao atualizar senha, senha atual inválida.",
         textAlign: TextAlign.center,

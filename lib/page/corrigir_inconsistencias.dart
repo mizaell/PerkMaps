@@ -653,7 +653,7 @@ class _CorrigirInconsistenciasStateState
           })));
 
   void _onSuccess() {
-    _scaffoldKey.currentState.showSnackBar(SnackBar(
+    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
       content: Text(
         "Suas alterações foram atribuídas com sucesso e seu artigo será submetido a uma nova avaliação.",
         textAlign: TextAlign.center,
@@ -670,7 +670,7 @@ class _CorrigirInconsistenciasStateState
   }
 
   void _onFail() {
-    _scaffoldKey.currentState.showSnackBar(SnackBar(
+    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
       content: Text(
         "Falha ao corrigir o artigo!",
         textAlign: TextAlign.center,

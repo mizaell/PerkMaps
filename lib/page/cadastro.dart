@@ -421,7 +421,7 @@ class _CadastroState extends State<Cadastro> {
           })));
 
   void _onSuccess() {
-    _scaffoldKey.currentState.showSnackBar(SnackBar(
+    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
       content: Text("Cadastro realizado com sucesso!"),
       backgroundColor: Color.fromARGB(239, 0, 153, 107),
       duration: Duration(seconds: 3),
@@ -433,7 +433,7 @@ class _CadastroState extends State<Cadastro> {
   }
 
   void _onFail() {
-    _scaffoldKey.currentState.showSnackBar(SnackBar(
+    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
       content: Text("Falha ao cadastrar, Email já cadastrado!"),
       backgroundColor: Colors.redAccent,
       duration: Duration(seconds: 4),

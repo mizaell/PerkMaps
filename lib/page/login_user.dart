@@ -191,13 +191,13 @@ class _UsuarioLoginState extends State<UsuarioLogin> {
                       ),
                       Align(
                         alignment: Alignment.centerRight,
-                        child: FlatButton(
+                        child: TextButton(
                           onPressed: () {
                             if (_emailController.text.isEmpty ||
                                 !_emailController.text.contains("@")
                                 || !EmailValidator.validate(_emailController.text))
                                 
-                              _scaffoldKey.currentState.showSnackBar(SnackBar(
+                              ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                                 content: Text(
                                   "Insira seu email para recuperar sua conta!",
                                   textAlign: TextAlign.center,
@@ -210,7 +210,7 @@ class _UsuarioLoginState extends State<UsuarioLogin> {
                               ));
                             else {
                               model.recoverPass(_emailController.text);
-                              _scaffoldKey.currentState.showSnackBar(SnackBar(
+                              ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                                 content: Text(
                                   "Confira a caixa de entrada/span do seu email!",
                                   textAlign: TextAlign.center,
@@ -232,7 +232,7 @@ class _UsuarioLoginState extends State<UsuarioLogin> {
                               color: Color.fromARGB(239, 0, 153, 107),
                             ),
                           ),
-                          padding: EdgeInsets.zero,
+                         // padding: EdgeInsets.zero,
                         ),
                       ),
                       SizedBox(
@@ -357,7 +357,7 @@ class _UsuarioLoginState extends State<UsuarioLogin> {
       );
 
   void _onSuccess() {
-    _scaffoldKey.currentState.showSnackBar(SnackBar(
+    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
       content: Text(
         "Login realizado com Sucesso!",
         textAlign: TextAlign.center,
@@ -376,7 +376,7 @@ class _UsuarioLoginState extends State<UsuarioLogin> {
   }
 
   void _onFail() {
-    _scaffoldKey.currentState.showSnackBar(SnackBar(
+    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
       content: Text(
         "Falha ao entrar, email ou senha inválido",
         textAlign: TextAlign.center,
