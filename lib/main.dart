@@ -3,7 +3,6 @@ import 'package:perk_maps/models/user_model.dart';
 import 'package:perk_maps/page/splash.dart';
 import 'package:flutter/material.dart';
 import 'package:scoped_model/scoped_model.dart';
-
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await FlutterConfig.loadEnvVariables();
@@ -18,7 +17,7 @@ class MyApp extends StatelessWidget {
     return ScopedModel<UserModel>(
       model: UserModel(),
       child: MaterialApp(
-          title: "PerkMaps",
+          title: "PerkMaps", 
           theme: ThemeData(
             fontFamily: 'Arial',
             primarySwatch: Colors.green,

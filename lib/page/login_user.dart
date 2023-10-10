@@ -45,9 +45,10 @@ class _UsuarioLoginState extends State<UsuarioLogin> {
             builder: (context, child, model) {
               if (model.isLoading)
                 return Center(
-                    child: CircularProgressIndicator(
-                  color: Color.fromARGB(239, 0, 153, 107),
-                ));
+                  child: CircularProgressIndicator(
+                    color: Color.fromARGB(239, 0, 153, 107),
+                  ),
+                );
 
               return Form(
                 key: _formKey,
@@ -77,24 +78,6 @@ class _UsuarioLoginState extends State<UsuarioLogin> {
                           ),
                         ),
                       ),
-                      // Center(
-                      //   child: Text(
-                      //     "Login",
-                      //     textAlign: TextAlign.center,
-                      //     style: TextStyle(
-                      //       fontSize: 35,
-                      //       color: Color.fromARGB(239, 0, 153, 107),
-                      //     ),
-                      //   ),
-                      // ),
-                      // SizedBox(
-                      //   height: 35,
-                      // ),
-                      // Material(
-                      //   borderRadius: BorderRadius.circular(10),
-                      //   elevation: 20.0,
-                      //   shadowColor: Color.fromARGB(147, 222, 242, 224),
-                      //  child:
                       SizedBox(
                         height: 30,
                       ),
@@ -138,46 +121,43 @@ class _UsuarioLoginState extends State<UsuarioLogin> {
                             return "E-mail inválido";
                         },
                       ),
-                      //),
                       SizedBox(
                         height: 10,
                       ),
-                      // Material(
-                      //   borderRadius: BorderRadius.circular(10),
-                      //   elevation: 20.0,
-                      //   shadowColor: Color.fromARGB(147, 222, 242, 224),
-                      //   child:
                       TextFormField(
                         controller: _passController,
                         keyboardType: TextInputType.text,
                         decoration: InputDecoration(
-                            fillColor: Color(0xffD8F6DB),
-                            filled: true,
-                            border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(10),
-                              borderSide: BorderSide(
-                                width: 0,
-                                style: BorderStyle.none,
-                              ),
+                          fillColor: Color(0xffD8F6DB),
+                          filled: true,
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10),
+                            borderSide: BorderSide(
+                              width: 0,
+                              style: BorderStyle.none,
                             ),
-                            labelText: "Senha",
-                            labelStyle: TextStyle(
+                          ),
+                          labelText: "Senha",
+                          labelStyle: TextStyle(
+                            color: Colors.grey,
+                            fontSize: 20,
+                          ),
+                          suffixIcon: GestureDetector(
+                            child: Icon(
+                              _showPassword == false
+                                  ? Icons.visibility_off
+                                  : Icons.visibility,
                               color: Colors.grey,
-                              fontSize: 20,
                             ),
-                            suffixIcon: GestureDetector(
-                              child: Icon(
-                                _showPassword == false
-                                    ? Icons.visibility_off
-                                    : Icons.visibility,
-                                color: Colors.grey,
-                              ),
-                              onTap: () {
-                                setState(() {
+                            onTap: () {
+                              setState(
+                                () {
                                   _showPassword = !_showPassword;
-                                });
-                              },
-                            )),
+                                },
+                              );
+                            },
+                          ),
+                        ),
                         obscureText: _showPassword == false ? true : false,
                         style: TextStyle(fontSize: 20),
                         validator: (text) {
@@ -185,7 +165,6 @@ class _UsuarioLoginState extends State<UsuarioLogin> {
                             return "A senha deve conter pelo menos 6 dígitos";
                         },
                       ),
-                      //),
                       SizedBox(
                         height: 5,
                       ),
@@ -194,34 +173,37 @@ class _UsuarioLoginState extends State<UsuarioLogin> {
                         child: TextButton(
                           onPressed: () {
                             if (_emailController.text.isEmpty ||
-                                !_emailController.text.contains("@")
-                                || !EmailValidator.validate(_emailController.text))
-                                
-                              ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                                content: Text(
-                                  "Insira seu email para recuperar sua conta!",
-                                  textAlign: TextAlign.center,
-                                  style: TextStyle(
-                                    fontSize: 18,
+                                !_emailController.text.contains("@") ||
+                                !EmailValidator.validate(_emailController.text))
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                SnackBar(
+                                  content: Text(
+                                    "Insira seu email para recuperar sua conta!",
+                                    textAlign: TextAlign.center,
+                                    style: TextStyle(
+                                      fontSize: 18,
+                                    ),
                                   ),
+                                  backgroundColor: Colors.redAccent,
+                                  duration: Duration(seconds: 3),
                                 ),
-                                backgroundColor: Colors.redAccent,
-                                duration: Duration(seconds: 3),
-                              ));
+                              );
                             else {
                               model.recoverPass(_emailController.text);
-                              ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                                content: Text(
-                                  "Confira a caixa de entrada/span do seu email!",
-                                  textAlign: TextAlign.center,
-                                  style: TextStyle(
-                                    fontSize: 18,
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                SnackBar(
+                                  content: Text(
+                                    "Confira a caixa de entrada/span do seu email!",
+                                    textAlign: TextAlign.center,
+                                    style: TextStyle(
+                                      fontSize: 18,
+                                    ),
                                   ),
+                                  backgroundColor:
+                                      Color.fromARGB(239, 0, 153, 107),
+                                  duration: Duration(seconds: 3),
                                 ),
-                                backgroundColor:
-                                    Color.fromARGB(239, 0, 153, 107),
-                                duration: Duration(seconds: 3),
-                              ));
+                              );
                             }
                           },
                           child: Text(
@@ -232,7 +214,6 @@ class _UsuarioLoginState extends State<UsuarioLogin> {
                               color: Color.fromARGB(239, 0, 153, 107),
                             ),
                           ),
-                         // padding: EdgeInsets.zero,
                         ),
                       ),
                       SizedBox(
@@ -246,22 +227,22 @@ class _UsuarioLoginState extends State<UsuarioLogin> {
                           child: Stack(
                             children: <Widget>[
                               Positioned.fill(
-                                  child: Container(
-                                decoration: BoxDecoration(
-                                  gradient: LinearGradient(
-                                    colors: <Color>[
-                                      Color.fromARGB(239, 0, 153, 107),
-                                      Color.fromARGB(235, 2, 205, 144),
-                                    ],
+                                child: Container(
+                                  decoration: BoxDecoration(
+                                    gradient: LinearGradient(
+                                      colors: <Color>[
+                                        Color.fromARGB(239, 0, 153, 107),
+                                        Color.fromARGB(235, 2, 205, 144),
+                                      ],
+                                    ),
                                   ),
-                                  //color: Color.fromARGB(239, 0, 153, 107),
                                 ),
-                              )),
+                              ),
                               SizedBox(
                                 child: TextButton(
                                   style: TextButton.styleFrom(
-                                    padding:
-                                        EdgeInsets.only(left: 25, right: 25, bottom: 2, top: 2),
+                                    padding: EdgeInsets.only(
+                                        left: 25, right: 25, bottom: 2, top: 2),
                                     primary: Colors.white,
                                     textStyle: const TextStyle(
                                       fontFamily: 'Arial',
@@ -309,21 +290,25 @@ class _UsuarioLoginState extends State<UsuarioLogin> {
                               children: <Widget>[
                                 Positioned.fill(
                                   child: Container(
-                                      decoration: BoxDecoration(
-                                    gradient: LinearGradient(
-                                      colors: <Color>[
-                                        Color.fromARGB(239, 0, 153, 107),
-                                        Color.fromARGB(235, 2, 205, 144),
-                                      ],
+                                    decoration: BoxDecoration(
+                                      gradient: LinearGradient(
+                                        colors: <Color>[
+                                          Color.fromARGB(239, 0, 153, 107),
+                                          Color.fromARGB(235, 2, 205, 144),
+                                        ],
+                                      ),
                                     ),
-                                  )),
+                                  ),
                                 ),
                                 SizedBox(
                                   height: 40,
                                   child: TextButton(
                                     style: TextButton.styleFrom(
-                                      padding:
-                                          EdgeInsets.only(left: 25, right: 25, bottom: 2, top: 2),
+                                      padding: EdgeInsets.only(
+                                          left: 25,
+                                          right: 25,
+                                          bottom: 2,
+                                          top: 2),
                                       primary: Colors.white,
                                       textStyle: const TextStyle(
                                         fontFamily: 'Arial',
@@ -331,10 +316,11 @@ class _UsuarioLoginState extends State<UsuarioLogin> {
                                       ),
                                     ),
                                     onPressed: () {
-                                      Navigator.of(context)
-                                          .push(MaterialPageRoute(
-                                        builder: (context) => Cadastro(),
-                                      ));
+                                      Navigator.of(context).push(
+                                        MaterialPageRoute(
+                                          builder: (context) => Cadastro(),
+                                        ),
+                                      );
                                     },
                                     child: const Text(
                                       "Cadastre-se",
@@ -357,35 +343,43 @@ class _UsuarioLoginState extends State<UsuarioLogin> {
       );
 
   void _onSuccess() {
-    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-      content: Text(
-        "Login realizado com Sucesso!",
-        textAlign: TextAlign.center,
-        style: TextStyle(
-          fontSize: 18,
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text(
+          "Login realizado com Sucesso!",
+          textAlign: TextAlign.center,
+          style: TextStyle(
+            fontSize: 18,
+          ),
         ),
+        backgroundColor: Color.fromARGB(239, 0, 153, 107),
+        duration: Duration(seconds: 2),
       ),
-      backgroundColor: Color.fromARGB(239, 0, 153, 107),
-      duration: Duration(seconds: 2),
-    ));
-    Future.delayed(Duration(seconds: 1)).then((_) {
-      Navigator.of(context).pushReplacement(MaterialPageRoute(
-        builder: (context) => HomeScreen(),
-      ));
-    });
+    );
+    Future.delayed(Duration(seconds: 1)).then(
+      (_) {
+        Navigator.of(context).pushReplacement(
+          MaterialPageRoute(
+            builder: (context) => HomeScreen(),
+          ),
+        );
+      },
+    );
   }
 
   void _onFail() {
-    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-      content: Text(
-        "Falha ao entrar, email ou senha inválido",
-        textAlign: TextAlign.center,
-        style: TextStyle(
-          fontSize: 18,
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text(
+          "Falha ao entrar, email ou senha inválido",
+          textAlign: TextAlign.center,
+          style: TextStyle(
+            fontSize: 18,
+          ),
         ),
+        backgroundColor: Colors.redAccent,
+        duration: Duration(seconds: 3),
       ),
-      backgroundColor: Colors.redAccent,
-      duration: Duration(seconds: 3),
-    ));
+    );
   }
 }

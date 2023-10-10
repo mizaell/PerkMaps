@@ -9,7 +9,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:234744498178:android:c6e94729420e01869dbf1b",
         "android_client_info": {
-          "package_name": "com.example.perk_maps"
+          "package_name": "com.ifce.perk_maps"
         }
       },
       "oauth_client": [
@@ -17,7 +17,7 @@
           "client_id": "234744498178-8jgelhmgsdng1e64o4gm83u5htmk6rl7.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.example.perk_maps",
+            "package_name": "com.ifce.perk_maps",
             "certificate_hash": "70fb938122dd1ead2357c1546470eb844ed31924"
           }
         },
