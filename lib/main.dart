@@ -8,7 +8,7 @@ void main() async {
   await FlutterConfig.loadEnvVariables();
   runApp(new MyApp());
 }
-
+//https://pt.stackoverflow.com/questions/547691/o-que-devo-fazer-para-fazer-upload-de-arquivo-com-s%C3%ADmbolos-de-depura%C3%A7%C3%A3o-no-flutt
 //Mobile application for android developed in flutter, using firebase as a database, and the GoogleMaps API. Developed in the TCC project, the main purpose is to map and track appearances of the attack of a protozoan (Perkinsus sp.) on oysters on the Brazilian coast.
 
 class MyApp extends StatelessWidget {
