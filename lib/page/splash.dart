@@ -17,7 +17,7 @@ class _SplashState extends State<Splash> {
   void initState() {
     super.initState();
     //SystemChrome.setEnabledSystemUIOverlays([]);
-    Future.delayed(Duration(seconds: 3)).then((_) {
+    Future.delayed(Duration(seconds: 5)).then((_) {
       Navigator.pushReplacement(
           context, MaterialPageRoute(builder: (context) => HomeScreen()));
     });
@@ -84,7 +84,9 @@ class _SplashState extends State<Splash> {
               ),
             ),
           ),
-          SizedBox(height: 20,),
+          SizedBox(
+            height: 20,
+          ),
           Container(
             child: Row(
               mainAxisAlignment: MainAxisAlignment.start,
@@ -97,31 +99,23 @@ class _SplashState extends State<Splash> {
                     Container(
                       child: Image.asset('images/estuario.png'),
                     ),
-                     RichText(
-                        text: new TextSpan(
-                          style: new TextStyle(
-                            fontSize: 10.0,
-                            color: Color.fromARGB(255, 7, 61, 34),
-                            fontFamily: 'Arial',
-                          ),
-                          children: <TextSpan>[
-                            new TextSpan(text: 'Foto 01: ', style:
-                                    new TextStyle(fontWeight: FontWeight.bold)),
-                            new TextSpan(
-                                text: 'Estuário Rio Pacotí',
-                                ),
-                          ],
+                    RichText(
+                      textAlign: TextAlign.left,
+                      text: new TextSpan(
+                        style: new TextStyle(
+                          fontSize: 11.0,
+                          color: Color.fromARGB(255, 7, 61, 34),
+                          fontFamily: 'Arial',
                         ),
+                        children: <TextSpan>[
+                          //new TextSpan(text: 'Foto 01: ', style:
+                          //new TextStyle(fontWeight: FontWeight.bold, )),
+                          new TextSpan(
+                            text: 'Estuário Rio Pacotí',
+                          ),
+                        ],
                       ),
-                    // Text(
-                    //   'Foto 01: Estuário Rio Pacotí',
-                    //   textAlign: TextAlign.left,
-                    //   style: TextStyle(
-                    //     fontSize: 10,
-                    //     fontWeight: FontWeight.bold,
-                    //     color: Color.fromARGB(255, 7, 61, 34),
-                    //   ),
-                    // )
+                    ),
                   ],
                 )),
                 SizedBox(
@@ -136,32 +130,33 @@ class _SplashState extends State<Splash> {
                     Container(
                       child: Image.asset('images/ostra.png'),
                     ),
+
                     RichText(
-                        text: new TextSpan(
-                          style: new TextStyle(
-                            fontSize: 10.0,
-                            color: Color.fromARGB(255, 7, 61, 34),
-                            fontFamily: 'Arial',
-                          ),
-                          children: <TextSpan>[
-                            new TextSpan(text: 'Foto 02: ', style:
-                                    new TextStyle(fontWeight: FontWeight.bold)),
-                            new TextSpan(
-                                text: 'Ostra Crassostrea rhizophorae',
-                                style: TextStyle(fontStyle: FontStyle.italic),
-                                ),
-                          ],
+                      textAlign: TextAlign.center,
+                      text: new TextSpan(
+                        style: new TextStyle(
+                          fontSize: 11.0,
+                          color: Color.fromARGB(255, 7, 61, 34),
+                          fontFamily: 'Arial',
                         ),
+                        children: <TextSpan>[
+                          //  new TextSpan(text: 'Foto 02: ', style:
+                          //  new TextStyle(fontWeight: FontWeight.bold)),
+                          new TextSpan(
+                            text: 'Ostra',
+                          ),
+                          new TextSpan(
+                            text: ' Crassostrea ',
+                            style: TextStyle(
+                              fontStyle: FontStyle.italic,
+                            ),
+                          ),
+                          new TextSpan(
+                            text: 'rhizophorae',
+                          ),
+                        ],
                       ),
-                    // Text(
-                    //   'Foto 02: Ostra Crassostrea rhizophorae',
-                    //   textAlign: TextAlign.left,
-                    //   style: TextStyle(
-                    //     fontSize: 10,
-                    //     fontWeight: FontWeight.bold,
-                    //     color: Color.fromARGB(255, 7, 61, 34),
-                    //   ),
-                    // )
+                    ),
                   ],
                 )),
                 SizedBox(
@@ -174,32 +169,24 @@ class _SplashState extends State<Splash> {
                         padding: EdgeInsets.only(top: 90),
                         child: Image.asset('images/perkinsusSp.png'),
                       ),
+
                       RichText(
+                        textAlign: TextAlign.center,
                         text: new TextSpan(
                           style: new TextStyle(
-                            fontSize: 10.0,
+                            fontSize: 11.0,
                             color: Color.fromARGB(255, 7, 61, 34),
                             fontFamily: 'Arial',
                           ),
                           children: <TextSpan>[
-                            new TextSpan(text: 'Foto 03: ', style:
-                                    new TextStyle(fontWeight: FontWeight.bold)),
+                            //  new TextSpan(text: 'Foto 03: ', style:
+                            //  new TextStyle(fontWeight: FontWeight.bold)),
                             new TextSpan(
-                                text: 'Hipnósporo de Perkinsus',
-                                
-                                ),
+                              text: 'Hipnósporo de Perkinsus',
+                            ),
                           ],
                         ),
                       ),
-                      // Text(
-                      //   'Foto 03: hipnósporo de Perkinsus',
-                      //   textAlign: TextAlign.left,
-                      //   style: TextStyle(
-                      //     fontSize: 10,
-                      //     fontWeight: FontWeight.bold,
-                      //     color: Color.fromARGB(255, 7, 61, 34),
-                      //   ),
-                      // )
                     ],
                   ),
                 ),
@@ -208,7 +195,6 @@ class _SplashState extends State<Splash> {
           ),
         ]),
       ),
-      
       bottomNavigationBar: Stack(
         children: [
           new Container(
